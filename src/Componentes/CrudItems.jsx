@@ -8,7 +8,7 @@ const CrudItems = () => {
     const [items, setItems] = useState([]);
     const [nombre, setNombre] = useState('');
     const [descripcion, setDescripcion] = useState('');
-    const [editId, setId] = useState(null);
+//    const [editId, setId] = useState(null);
 
     const fetchItems = async () => {
         try {

@@ -2,7 +2,7 @@ import "../css/SContacto.css"
 import axios from 'axios'
 import { useState } from 'react'
 import Swal from "sweetalert2";
-import { Navigate, useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 
 const Login = () => {
