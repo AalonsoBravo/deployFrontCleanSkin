@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
@@ -16,7 +16,10 @@ const validationSchema = Yup.object().shape({
     password: Yup.string().min(8, 'Too Short!').required('Required'),
 });
 
-export const Alta = () => (
+export const Alta = () => {
+    const navigate = useNavigate();
+
+    return (
     <main>
     <div>
         <div className='Tittle'>
@@ -46,7 +49,9 @@ export const Alta = () => (
                         title: 'Error',
                         text: 'No se pudo crear el usuario. Inténtalo de nuevo.',
                         icon: 'error',
-                    });
+                    }).then(() =>{
+                        navigate('/alta'); // Redirige a la página de alta si el alta falla
+                    })
                     resetForm();
                 }
             }}
@@ -69,6 +74,7 @@ export const Alta = () => (
         </Formik>
     </div>
     </main>
-);
+    )
+};
 
 export default Alta;
