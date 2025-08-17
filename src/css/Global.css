@@ -87,59 +87,49 @@ header {
     cursor: pointer;
     color: #ffffff;
 }
+/* Botón hamburguesa */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
 
+/* Navbar en móviles */
 @media (max-width: 768px) {
-    header {
+        header {
         display: flex;
         flex-wrap: wrap;
     }
-
-    .navbar {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-    }
-
     .navbar ul {
-        display:flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: rgb(253,243,234);
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        padding: 1rem 0;
     }
-
-    .navbar ul li {
-        width: 100%;
-        text-align: center;
-    }
-
-    .navbar ul li a {
-        height: auto;
-        padding: 0 1rem;
-    }
-
-    .navbar ul li:hover {
-        background-color: rgba(0, 0, 0, 0.2);
-    }
-
-    .navbar ul li:first-child {
-        margin-right: 0;
-    }
-
-    .navbar ul li:last-child {
-        margin-left: 0;
-    }
-
-    .navbar ul.show {
+    .navbar.open ul {
         display: flex;
     }
-
-    .search-form input {
-        padding: .4rem;
+    .navbar ul li {
+        margin: 1rem 0;
+        text-align: right;
     }
-
-    .search-form button {
-        padding: .1rem .1rem;
+    .menu-toggle {
+        display: block;
+    }
+    .logo {
+        position: relative;
+        z-index: 101;
     }
     
     footer {
@@ -154,17 +144,16 @@ header {
         align-items: center;
         justify-content: center;
     }
-
+    
     .footer-container {
         display: flex;
         align-items: center;
     }
-
+    
     .footer-container {
         font-size: smaller;
         margin: 0;
     }
-
 }
 
 main {

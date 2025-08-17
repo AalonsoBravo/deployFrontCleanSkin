@@ -1,7 +1,9 @@
+import { useState } from "react";
 import logo from "../images/items/logocs.png";
 import { Link, useNavigate } from "react-router-dom";
 
 const Navegacion = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
     const navigate = useNavigate();
     const nombre = localStorage.getItem("nombre");
     const activo = localStorage.getItem("activo");
@@ -13,31 +15,41 @@ const Navegacion = () => {
         navigate("/login");
     };
 
+    // Cierra el menú al navegar
+    const handleLinkClick = () => setMenuOpen(false);
+
     return (
         <header>
             <div className="logo">
                 <img src={logo} alt="CLEAN SKIN" />
             </div>
-            <form className="search-form">
-                <input type="text" placeholder="Search here..." />
-                <button type="submit">Search</button>
-            </form>
-            <nav className="navbar">
+            <button
+                className="menu-toggle"
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Abrir menú"
+            >
+                &#9776;
+            </button>
+            <nav className={`navbar ${menuOpen ? "open" : ""}`}>
                 <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/nosotros">Nosotros</Link></li>
-                    <li><Link to="/contacto">Contacto</Link></li>
-                    <li><Link to="/carrito">Carrito</Link></li>
+                    <li><Link to="/" onClick={handleLinkClick}>Home</Link></li>
+                    <li><Link to="/nosotros" onClick={handleLinkClick}>Nosotros</Link></li>
+                    <li><Link to="/contacto" onClick={handleLinkClick}>Contacto</Link></li>
+                    <li><Link to="/carrito" onClick={handleLinkClick}>Carrito</Link></li>
                     {activo !== "true" ? (
                         <>
-                            <li><Link to="/alta">Registro</Link></li>
-                            <li><Link to="/login">Login</Link></li>
+                            <li><Link to="/alta" onClick={handleLinkClick}>Registro</Link></li>
+                            <li><Link to="/login" onClick={handleLinkClick}>Login</Link></li>
                         </>
                     ) : (
                         <>
-                            <li><Link to="#">Hola, {nombre}</Link></li>
                             <li>
-                                <Link to="#" onClick={handleLogout}>
+                                <Link to="#" onClick={e => e.preventDefault()} className="nav-link">
+                                    Hola, {nombre}
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="#" onClick={() => { handleLogout(); handleLinkClick(); }}>
                                     Cerrar sesión
                                 </Link>
                             </li>
