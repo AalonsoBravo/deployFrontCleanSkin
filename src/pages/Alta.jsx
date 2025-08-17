@@ -1,3 +1,6 @@
+/*
+import "../css/Global.css"
+import "../css/SAlta.css";
 import React from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -23,7 +26,7 @@ export const Alta = () => {
     <main>
     <div>
         <div className='Tittle'>
-        <h1>Alta de usuarios</h1>
+        <h1 className="TittleAnimation">Alta de usuarios</h1>
         </div>
         <Formik
             initialValues={{
@@ -76,5 +79,21 @@ export const Alta = () => {
     </main>
     )
 };
+
+export default Alta; */
+
+import "../css/Global.css"
+import RegistroForm from "../Components/RegistroForm";
+
+const Alta = () => {
+    return (
+        <main className="CMain">
+            <div className="Tittle">
+                <h1 className="TittleAnimation">Registro</h1>
+            </div>
+            <RegistroForm />
+        </main>
+    );
+}
 
 export default Alta;
