@@ -1,3 +1,8 @@
+.CartTableContainer {
+    width: 100%;
+    overflow-x: auto;
+}
+
 .CartTable {
     width: 100%;
     border-collapse: collapse;
@@ -40,10 +45,11 @@
     color: #222;
 }
 
-.cartButtons{
+.cartButtons {
     display: flex;
     justify-content: space-between;
     margin-top: 16px;
+    gap: 1rem;
 }
 
 .cartButtons button {
@@ -69,4 +75,39 @@
 .eliminarDeCarrito:hover button {
     background-color: #600000;
     transition: all 0.3s ease;
+}
+
+/* Responsividad para móviles */
+@media (max-width: 768px) {
+    .CartTableContainer {
+        overflow-x: auto;
+    }
+    .CartTable {
+        min-width: 600px;
+        font-size: 0.85rem;
+    }
+    .CartTable th,
+    .CartTable td {
+        padding: 8px 10px;
+    }
+    .CartItem img {
+        max-width: 40px;
+        max-height: 40px;
+    }
+    .CartTotal {
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .cartButtons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    .cartButtons button,
+    .eliminarDeCarrito button {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.75rem;
+    }
 }

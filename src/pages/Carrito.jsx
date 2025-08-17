@@ -77,7 +77,7 @@ const CarritoPage = () => {
                     <p>El carrito está vacío.</p>
                 ) : (
                     <>
-                        <div>
+                        <div className="CartTableContainer">
                             <table className="CartTable">
                                 <thead>
                                     <tr>
