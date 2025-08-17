@@ -65,10 +65,6 @@ src/
 
 - Alonso
 
-**Importante:**  
-Los deploys del proyecto en Railway están disponibles en los siguientes enlaces:
+## Licencia
 
-- Backend: [https://deploybackcleanskin-production.up.railway.app/](https://deploybackcleanskin-production.up.railway.app/)
-- Frontend: [https://deployfrontcleanskin-production.up.railway.app/](https://deployfrontcleanskin-production.up.railway.app/)
-
-Puedes acceder y probar el proyecto directamente desde estos enlaces.
+Este proyecto está bajo la licencia
